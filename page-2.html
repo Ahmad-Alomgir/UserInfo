@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Raleway:wght@100..900&display=swap"
+        rel="stylesheet">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: Raleway;
+            display: grid;
+            justify-items: center;
+            margin-top: 200px;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .info-label {
+            font-weight: bold;
+        }
+
+        .info-value {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Information</h1>
+    <div class="info-container">
+        <div>
+            <span class="info-label">Name:</span>
+            <span id="name" class="info-value"></span>
+        </div>
+        <div>
+            <span class="info-label">Email:</span>
+            <span id="email" class="info-value"></span>
+        </div>
+        <div>
+            <span class="info-label">Gender:</span>
+            <span id="gender" class="info-value"></span>
+        </div>
+        <div>
+            <span class="info-label">Phone:</span>
+            <span id="phone" class="info-value"></span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get query parameters from the URL
+            const params = new URLSearchParams(window.location.search);
+
+            // Check if query parameters exist before trying to display them
+            const name = params.get('name');
+            if (name) {
+                document.getElementById('name').textContent = name;
+            }
+
+            const email = params.get('email');
+            if (email) {
+                document.getElementById('email').textContent = email;
+            }
+
+            const gender = params.get('gender');
+            if (gender) {
+                document.getElementById('gender').textContent = gender;
+            }
+
+            const phone = params.get('phone');
+            if (phone) {
+                document.getElementById('phone').textContent = phone;
+            }
+        });
+    </script>
+</body>
+</html>
